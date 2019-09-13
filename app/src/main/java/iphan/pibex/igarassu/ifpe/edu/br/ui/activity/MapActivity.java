@@ -1,5 +1,10 @@
 package iphan.pibex.igarassu.ifpe.edu.br.ui.activity;
 
+//import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
@@ -9,6 +14,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -96,9 +102,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
+//        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
 
         GoogleMapsModel.setMap(googleMap);
 
@@ -109,14 +123,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_NORMAL);
         }
 
-        if (SharedPreferencesUtil.isNewPoints(this)) {
-            invokeAddMarkerMapOther.onAddMarkerFirebase();
-            SharedPreferencesUtil.isNewPoints(this, false);
-        } else {
-            invokeAddMarkerMapOther.onAddMarkerSqlite(); //chamada do metodo onAddMarkerSqlite, isso fará que adicione os pontos
+        if (isConnected == true) {
+            System.out.println("Você está conectado");
+            if (SharedPreferencesUtil.isNewPoints(this)) {
+                invokeAddMarkerMapOther.onAddMarkerFirebase();
+                SharedPreferencesUtil.isNewPoints(this, false);
+            } else {
+                invokeAddMarkerMapOther.onAddMarkerSqlite(); //chamada do metodo onAddMarkerSqlite, isso fará que adicione os pontos
+            }
+        }else{
+            System.out.println("Você não estã conctado, ou conexão fragil.");
         }
 
-        GoogleMapsModel.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(Constants.CENTER_LOCATION, 16)); /*Centro do mapa*/
+        GoogleMapsModel.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(Constants.CENTER_LOCATION, 18)); /*Centro do mapa*/
         GoogleMapsModel.getMap().setOnMarkerClickListener(this); //Listener
 
         //Botões de Zoom
@@ -153,7 +172,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
-    //Método infoWindow, colocar pop-up para todos os marker
+    //Método infoWindow, coloca um pop-up para todos os marker
     private void infoWindow() {
 
         if (GoogleMapsModel.getMap() != null) {
@@ -209,6 +228,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.FROYO)
     @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

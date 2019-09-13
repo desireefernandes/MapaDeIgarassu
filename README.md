@@ -21,7 +21,7 @@ https://github.com/Mr-Holmes/Jogo-da-Memoria
 
 ### Github Mapa de Igarassu Administrador
 
-Github para o projeto extensor do Aplicativo Mapa de Igarass
+Github para o projeto extensor do Aplicativo Mapa de Igarassu
 
 https://github.com/gabriel-silva/MapaDeIgarassuAdmin
 
