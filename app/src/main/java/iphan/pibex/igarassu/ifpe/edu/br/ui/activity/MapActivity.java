@@ -110,30 +110,50 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        // Verifica se a cenexão é de dados moveis
+        NetworkInfo.State isMobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+        // Verifica se a conexão é com a rede WIFI
+        NetworkInfo.State isWifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+        NetworkInfo.State isConnected = NetworkInfo.State.CONNECTED;
+
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
 
         GoogleMapsModel.setMap(googleMap);
 
-        //Verificação de tipos de mapa
-        if (Constants.MAP_TYPE_HYBRID == SharedPreferencesUtil.getTypeMaps(this)) {
-            GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_HYBRID);
-        } else {
-            GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_NORMAL);
-        }
+        if (isConnected == isWifi) { // Se estiver conectado a uma rede Wifi
+            System.out.println("Você está conectado a uma rede WiFi");
 
-        if (isConnected == true) {
-            System.out.println("Você está conectado");
+            //Verificação de tipos de mapa
+            if (Constants.MAP_TYPE_HYBRID == SharedPreferencesUtil.getTypeMaps(this)) {
+                GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_HYBRID);
+            } else {
+                GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_NORMAL);
+            }
+
+            // Verifica se ha novosa pontos nesse Context
             if (SharedPreferencesUtil.isNewPoints(this)) {
+                // Modo de acessar o Banco, e adicionar novo Ponto
                 invokeAddMarkerMapOther.onAddMarkerFirebase();
+                // Verifica se ha novos pontos no mapa
                 SharedPreferencesUtil.isNewPoints(this, false);
             } else {
                 invokeAddMarkerMapOther.onAddMarkerSqlite(); //chamada do metodo onAddMarkerSqlite, isso fará que adicione os pontos
             }
-        }else{
-            System.out.println("Você não estã conctado, ou conexão fragil.");
+
+        }else if(isConnected == isMobile){ // Se for conexão com redes Moveis
+
+            //Verificação de tipos de mapa
+            if (Constants.MAP_TYPE_HYBRID == SharedPreferencesUtil.getTypeMaps(this)) {
+                GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_HYBRID);
+            } else {
+                GoogleMapsModel.getMap().setMapType(Constants.MAP_TYPE_NORMAL);
+            }
+
+
+
+            System.out.println("Você está conectado a uma rede Movel.");
         }
+
 
         GoogleMapsModel.getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(Constants.CENTER_LOCATION, 18)); /*Centro do mapa*/
         GoogleMapsModel.getMap().setOnMarkerClickListener(this); //Listener
