@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="afdf9b83-04f5-4944-b82d-bb5a5ddfa8fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ToyPlane.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ToyPlane.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ToyPlane.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/cowboy.dae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/cowboy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/cube.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/cube.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/cube.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/penguin.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/penguin.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/penguin.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ship.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ship.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ship.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/ship.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/teapot.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/triangles.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/assets/models/wolf.stl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1kQHAMAkpu1ZZmCl9qORxpEcYlv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afdf9b83-04f5-4944-b82d-bb5a5ddfa8fe" name="Default Changelist" comment="" />
+      <created>1605625750503</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605625750503</updated>
+    </task>
+    <servers />
+  </component>
+</project>
