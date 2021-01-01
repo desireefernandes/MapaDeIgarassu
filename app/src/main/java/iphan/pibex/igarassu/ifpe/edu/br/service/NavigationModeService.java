@@ -16,8 +16,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -132,8 +132,8 @@ public class NavigationModeService extends Service {
         public void notificationMessage(String message){
 
             //nova notificação
-            android.support.v7.app.NotificationCompat.Builder builder = new
-                    android.support.v7.app.NotificationCompat.Builder(NavigationModeService.this);
+            androidx.appcompat.app.NotificationCompat.Builder builder = new
+                    androidx.appcompat.app.NotificationCompat.Builder(NavigationModeService.this);
 
             //versão maior igual ao lollipop foto transparente, else menor igual foto normal
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

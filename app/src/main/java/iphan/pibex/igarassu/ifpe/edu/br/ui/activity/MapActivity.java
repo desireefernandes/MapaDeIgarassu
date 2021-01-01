@@ -2,7 +2,6 @@ package iphan.pibex.igarassu.ifpe.edu.br.ui.activity;
 
 //import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 
 import android.annotation.SuppressLint;
@@ -13,16 +12,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -256,7 +255,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         this.searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        this.mSearchAutoComplete = (SearchView.SearchAutoComplete) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        this.mSearchAutoComplete = (SearchView.SearchAutoComplete) searchView.findViewById(androidx.appcompat.appcompat.R.id.search_src_text);
         this.mSearchAutoComplete.setDropDownBackgroundResource(R.color.white); //cor da lista auto complete
         this.mSearchAutoComplete.setDropDownAnchor(R.id.search);
         this.mSearchAutoComplete.setThreshold(0);
